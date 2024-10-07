@@ -1,0 +1,13 @@
+def insertion_sort(A):
+    for j in range(1, len(A)):  # j starts from 1 to match A[1..j-1] in your pseudocode
+        key = A[j]
+        # Insert A[j] into the sorted sequence A[0..j-1]
+        i = j - 1
+        while i >= 0 and A[i] > key:  # Updated to include the first element
+            A[i + 1] = A[i]
+            i -= 1
+        A[i + 1] = key
+
+        # best case analysis = T( N)=  n + (n-1) + (n-1) + (n-1) + (n-1)c= 5n-4
+        # c1n + c2 (n-1) + c4 (n-1) + c5 sum (da j=2 a n) tj + c6 sum (da j=2 a n) tj .1 + sum (da j=2 a n) tj -1 + c8(n-1)
+        # worst case analysis = an^2 + bn + c
